@@ -5,14 +5,11 @@
 _ The challenge was to reproduce a website from design files (images files) from FrontEnd mentor
 
 ### Screenshot
-_The screenshot are in the [image.doc](image.docx) file
+_The screenshot are in the [image.doc](images/image.docx) file
 
 
 
 ### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
 
