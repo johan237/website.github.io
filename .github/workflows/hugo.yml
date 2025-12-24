@@ -17,7 +17,7 @@ concurrency:
 
 defaults:
   run:
-    working-directory: ./themes/archie/exampleSite
+    working-directory: ./exampleSite
 
 jobs:
   build:
@@ -51,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./themes/archie/exampleSite/public
+          path: ./exampleSite/public
 
   deploy:
     environment:
