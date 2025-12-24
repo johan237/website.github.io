@@ -34,6 +34,11 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      - name: Prepare theme structure
+        run: |
+          mkdir -p exampleSite/themes
+          ln -s $(pwd) exampleSite/themes/archie
+
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
@@ -42,8 +47,6 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --themesDir .. \
-            --theme archie \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
