@@ -22,22 +22,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive  # Important if theme is a git submodule
           fetch-depth: 0
-
-      - name: Verify directory structure
-        run: |
-          echo "=== Root directory ==="
-          ls -la
-          echo "=== Config files ==="
-          ls -la *.toml *.yaml *.yml 2>/dev/null || echo "No config found in root"
-          echo "=== Themes directory ==="
-          ls -la themes/ 2>/dev/null || echo "No themes directory"
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.139.0'  # Use latest stable
+          hugo-version: '0.139.0'
           extended: true
 
       - name: Setup Pages
@@ -47,16 +37,19 @@ jobs:
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
+        working-directory: ./exampleSite
         run: |
           hugo \
             --gc \
             --minify \
+            --themesDir .. \
+            --theme archie \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./exampleSite/public
 
   deploy:
     environment:
