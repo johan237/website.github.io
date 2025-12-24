@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/website.github.io/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=website.github.io/livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>An introduction to fuzzy logic with python code. - Johan personal website</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Introduction
+Fuzzy logic is a branch of artificial intelligence that deals with &ldquo;fuzzy&rdquo; data—data that cannot be represented by discrete state values. Unlike traditional binary logic where something is either true (1) or false (0), fuzzy logic allows for degrees of truth, making it particularly useful for handling real-world concepts like temperature, distance, speed, and other continuous variables.
+Consider temperature as an example. Traditional binary logic might classify temperature as either cold (0) or hot (1). A more refined approach would be to create multiple discrete states: [cold, cool, warm, hot], and use one-hot encoding where cold might be represented as [1, 0, 0, 0]." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/website.github.io/posts/on-fuzzy-logic/">
+  <meta property="og:site_name" content="Johan personal website">
+  <meta property="og:title" content="An introduction to fuzzy logic with python code.">
+  <meta property="og:description" content="Introduction Fuzzy logic is a branch of artificial intelligence that deals with “fuzzy” data—data that cannot be represented by discrete state values. Unlike traditional binary logic where something is either true (1) or false (0), fuzzy logic allows for degrees of truth, making it particularly useful for handling real-world concepts like temperature, distance, speed, and other continuous variables.
+Consider temperature as an example. Traditional binary logic might classify temperature as either cold (0) or hot (1). A more refined approach would be to create multiple discrete states: [cold, cool, warm, hot], and use one-hot encoding where cold might be represented as [1, 0, 0, 0].">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-12-24T00:00:00+00:00">
+    <meta property="article:tag" content="Fuzzy">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Machine-Learning">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="An introduction to fuzzy logic with python code.">
+  <meta name="twitter:description" content="Introduction Fuzzy logic is a branch of artificial intelligence that deals with “fuzzy” data—data that cannot be represented by discrete state values. Unlike traditional binary logic where something is either true (1) or false (0), fuzzy logic allows for degrees of truth, making it particularly useful for handling real-world concepts like temperature, distance, speed, and other continuous variables.
+Consider temperature as an example. Traditional binary logic might classify temperature as either cold (0) or hot (1). A more refined approach would be to create multiple discrete states: [cold, cool, warm, hot], and use one-hot encoding where cold might be represented as [1, 0, 0, 0].">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/website.github.io/css/main.2d8b5d025466bd6ddaba53abadd82452f7b979866a58623830289b480f93bb3b.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="http://localhost:1313/website.github.io/css/dark.3cc53e265be0aadc134ff08f276085599313959408ee8c32d9cf35ce71670fff.css" media="(prefers-color-scheme: dark)"  /><script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [['$','$'], ['\\(','\\)']],
+				displayMath: [['$$','$$'], ['\[','\]']],
+				processEscapes: true,
+				processEnvironments: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				TeX: { equationNumbers: { autoNumber: "AMS" },
+						 extensions: ["AMSmath.js", "AMSsymbols.js"] }
+			}
+		});
+		</script>
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Johan personal website</a>
+	</div>
+	<nav>
+		
+		<a href="/website.github.io/">Home</a>
+		
+		<a href="/website.github.io/posts">All posts</a>
+		
+		<a href="/website.github.io/about">About</a>
+		
+		<a href="/website.github.io/tags">Tags</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">An introduction to fuzzy logic with python code.</h1>
+          <div class="meta">Posted on Dec 24, 2025</div>
+        </div>
+        
+        <section class="body">
+          <h2 id="introduction">Introduction</h2>
+<p>Fuzzy logic is a branch of artificial intelligence that deals with &ldquo;fuzzy&rdquo; data—data that cannot be represented by discrete state values. Unlike traditional binary logic where something is either true (1) or false (0), fuzzy logic allows for degrees of truth, making it particularly useful for handling real-world concepts like temperature, distance, speed, and other continuous variables.</p>
+<p>Consider temperature as an example. Traditional binary logic might classify temperature as either cold (0) or hot (1). A more refined approach would be to create multiple discrete states: [cold, cool, warm, hot], and use one-hot encoding where cold might be represented as [1, 0, 0, 0].</p>
+<p>However, this approach still has a fundamental limitation: it cannot handle values that belong to multiple categories simultaneously. For instance, if I were to give you a cup of water with a relatively high temperature and ask &ldquo;Is this water too hot?&rdquo;, you might answer &ldquo;It&rsquo;s a bit hot but not too hot.&rdquo; By saying this, you&rsquo;re expressing that it&rsquo;s not 100% hot—perhaps 70% hot and 30% warm. This type of reasoning, where values can belong to multiple sets with varying degrees of membership, is at the core of fuzzy logic.</p>
+<h2 id="what-is-fuzzy-logic">What is Fuzzy Logic?</h2>
+<p>Fuzzy logic is a type of many-valued logic that deals with &ldquo;degrees of truth,&rdquo; allowing variables to have truth values anywhere between 0 (completely false) and 1 (completely true). Unlike classical logic, fuzzy logic mimics human-like reasoning by handling uncertainty and imprecision naturally.</p>
+<p>So the question becomes: how do we model this fuzzy system?</p>
+<h3 id="the-four-pillars-of-fuzzy-logic">The Four Pillars of Fuzzy Logic</h3>
+<p>In order to model a fuzzy logic system, we need four essential components:</p>
+<h4 id="1-membership-functions">1. Membership Functions</h4>
+<p>A membership function tells us how much a discrete value belongs to a particular fuzzy set. It maps input values to membership degrees between 0 and 1. For our temperature example, we can define the following membership functions:</p>
+<p><strong>Cold:</strong>
+$$\mu_{\text{Cold}}(x) = \begin{cases}
+1 &amp; x \leq 10 \
+\frac{20-x}{10} &amp; 10 &lt; x &lt; 20 \
+0 &amp; x \geq 20
+\end{cases}$$</p>
+<p><strong>Cool:</strong>
+$$\mu_{\text{Cool}}(x) = \begin{cases}
+0 &amp; x \leq 10 \text{ or } x \geq 30 \
+\frac{x-10}{10} &amp; 10 &lt; x \leq 20 \
+\frac{30-x}{10} &amp; 20 &lt; x &lt; 30
+\end{cases}$$</p>
+<p><strong>Warm:</strong>
+$$\mu_{\text{Warm}}(x) = \begin{cases}
+0 &amp; x \leq 20 \text{ or } x \geq 40 \
+\frac{x-20}{10} &amp; 20 &lt; x \leq 30 \
+\frac{40-x}{10} &amp; 30 &lt; x &lt; 40
+\end{cases}$$</p>
+<p><strong>Hot:</strong>
+$$\mu_{\text{Hot}}(x) = \begin{cases}
+0 &amp; x \leq 30 \
+\frac{x-30}{10} &amp; 30 &lt; x &lt; 40 \
+1 &amp; x \geq 40
+\end{cases}$$</p>
+<p>Let&rsquo;s calculate the membership values for a temperature of 35°C:</p>
+<ul>
+<li>$\mu_{\text{Cold}}(35) = 0$ (not cold)</li>
+<li>$\mu_{\text{Cool}}(35) = 0$ (not cool)</li>
+<li>$\mu_{\text{Warm}}(35) = \frac{40-35}{10} = 0.5$ (50% warm)</li>
+<li>$\mu_{\text{Hot}}(35) = \frac{35-30}{10} = 0.5$ (50% hot)</li>
+</ul>
+<p>This demonstrates the power of fuzzy logic: at 35 degrees, the temperature simultaneously belongs to both the &ldquo;warm&rdquo; and &ldquo;hot&rdquo; sets with equal degrees of membership (0.5 each), rather than being forced into a single discrete category.</p>
+<h4 id="2-fuzzy-rules">2. Fuzzy Rules</h4>
+<p>Fuzzy rules are IF-THEN statements that define the relationship between input variables and output variables. These rules use linguistic variables and are expressed in natural language, making them intuitive and easy to understand. For example:</p>
+<ul>
+<li>IF temperature is Cold THEN heating is High</li>
+<li>IF temperature is Cool THEN heating is Medium</li>
+<li>IF temperature is Warm THEN heating is Low</li>
+<li>IF temperature is Hot THEN heating is Off</li>
+</ul>
+<p>These rules capture expert knowledge or heuristics about how the system should behave. Multiple rules can be active simultaneously, each contributing to the final output based on their membership values. The strength of each rule&rsquo;s contribution depends on how well the input matches the rule&rsquo;s condition.</p>
+<h4 id="3-inference-engine">3. Inference Engine</h4>
+<p>The inference engine applies the fuzzy rules to the input values. It combines the membership values from the membership functions with the fuzzy rules to determine the degree to which each rule is activated. Common inference methods include:</p>
+<ul>
+<li><strong>Mamdani inference</strong>: Uses min-max operations. The output membership function is clipped at the rule&rsquo;s strength (minimum), and then all outputs are combined using maximum (union).</li>
+<li><strong>Sugeno inference</strong>: Uses weighted averages. The output is a linear combination of input variables, weighted by the rule&rsquo;s firing strength.</li>
+</ul>
+<p>The inference engine processes all applicable rules and produces a fuzzy output set, which represents the aggregated result of all active rules.</p>
+<h4 id="4-defuzzification">4. Defuzzification</h4>
+<p>Defuzzification is the process of converting the fuzzy output set back into a crisp (numerical) value. Since fuzzy logic produces membership values (degrees of truth), we need to convert these back to actionable numerical outputs that can control a system or make a decision.</p>
+<p>Common defuzzification methods include:</p>
+<ul>
+<li><strong>Centroid method</strong>: Calculates the center of gravity of the output fuzzy set. This is the most commonly used method and provides a smooth output.</li>
+<li><strong>Max membership method</strong>: Selects the output with the highest membership value. Simple but can be less smooth.</li>
+<li><strong>Weighted average method</strong>: Computes a weighted average of the output values, where weights are the membership degrees.</li>
+</ul>
+<p>This final step gives us a concrete value that can be used to control a system or make a decision.</p>
+<h2 id="python-implementation">Python Implementation</h2>
+<p>Now let&rsquo;s implement a fuzzy logic system in Python using the <code>scikit-fuzzy</code> library. We&rsquo;ll create a temperature control system that adjusts heating based on the current temperature.</p>
+<p>First, install the required library:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install scikit-fuzzy numpy matplotlib
+</span></span></code></pre></div><p>Here&rsquo;s a complete Python implementation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> skfuzzy <span style="color:#66d9ef">as</span> fuzz
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> skfuzzy <span style="color:#f92672">import</span> control <span style="color:#66d9ef">as</span> ctrl
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define the universe of discourse (temperature range: 0-50°C)</span>
+</span></span><span style="display:flex;"><span>temperature <span style="color:#f92672">=</span> ctrl<span style="color:#f92672">.</span>Antecedent(np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">51</span>, <span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;temperature&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define fuzzy sets for temperature</span>
+</span></span><span style="display:flex;"><span>temperature[<span style="color:#e6db74">&#39;cold&#39;</span>] <span style="color:#f92672">=</span> fuzz<span style="color:#f92672">.</span>trimf(temperature<span style="color:#f92672">.</span>universe, [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20</span>])
+</span></span><span style="display:flex;"><span>temperature[<span style="color:#e6db74">&#39;cool&#39;</span>] <span style="color:#f92672">=</span> fuzz<span style="color:#f92672">.</span>trimf(temperature<span style="color:#f92672">.</span>universe, [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>])
+</span></span><span style="display:flex;"><span>temperature[<span style="color:#e6db74">&#39;warm&#39;</span>] <span style="color:#f92672">=</span> fuzz<span style="color:#f92672">.</span>trimf(temperature<span style="color:#f92672">.</span>universe, [<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">40</span>])
+</span></span><span style="display:flex;"><span>temperature[<span style="color:#e6db74">&#39;hot&#39;</span>] <span style="color:#f92672">=</span> fuzz<span style="color:#f92672">.</span>trimf(temperature<span style="color:#f92672">.</span>universe, [<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">50</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define the output variable (heating level: 0-100%)</span>
+</span></span><span style="display:flex;"><span>heating <span style="color:#f92672">=</span> ctrl<span style="color:#f92672">.</span>Consequent(np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">101</span>, <span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;heating&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define fuzzy sets for heating</span>
+</span></span><span style="display:flex;"><span>heating[<span style="color:#e6db74">&#39;off&#39;</span>] <span style="color:#f92672">=</span> fuzz<span style="color:#f92672">.</span>trimf(heating<span style="color:#f92672">.</span>universe, [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">25</span>])
+</span></span><span style="display:flex;"><span>heating[<span style="color:#e6db74">&#39;low&#39;</span>] <span style="color:#f92672">=</span> fuzz<span style="color:#f92672">.</span>trimf(heating<span style="color:#f92672">.</span>universe, [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">50</span>])
+</span></span><span style="display:flex;"><span>heating[<span style="color:#e6db74">&#39;medium&#39;</span>] <span style="color:#f92672">=</span> fuzz<span style="color:#f92672">.</span>trimf(heating<span style="color:#f92672">.</span>universe, [<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">75</span>])
+</span></span><span style="display:flex;"><span>heating[<span style="color:#e6db74">&#39;high&#39;</span>] <span style="color:#f92672">=</span> fuzz<span style="color:#f92672">.</span>trimf(heating<span style="color:#f92672">.</span>universe, [<span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define fuzzy rules</span>
+</span></span><span style="display:flex;"><span>rule1 <span style="color:#f92672">=</span> ctrl<span style="color:#f92672">.</span>Rule(temperature[<span style="color:#e6db74">&#39;cold&#39;</span>], heating[<span style="color:#e6db74">&#39;high&#39;</span>])
+</span></span><span style="display:flex;"><span>rule2 <span style="color:#f92672">=</span> ctrl<span style="color:#f92672">.</span>Rule(temperature[<span style="color:#e6db74">&#39;cool&#39;</span>], heating[<span style="color:#e6db74">&#39;medium&#39;</span>])
+</span></span><span style="display:flex;"><span>rule3 <span style="color:#f92672">=</span> ctrl<span style="color:#f92672">.</span>Rule(temperature[<span style="color:#e6db74">&#39;warm&#39;</span>], heating[<span style="color:#e6db74">&#39;low&#39;</span>])
+</span></span><span style="display:flex;"><span>rule4 <span style="color:#f92672">=</span> ctrl<span style="color:#f92672">.</span>Rule(temperature[<span style="color:#e6db74">&#39;hot&#39;</span>], heating[<span style="color:#e6db74">&#39;off&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create the control system</span>
+</span></span><span style="display:flex;"><span>heating_ctrl <span style="color:#f92672">=</span> ctrl<span style="color:#f92672">.</span>ControlSystem([rule1, rule2, rule3, rule4])
+</span></span><span style="display:flex;"><span>heating_sim <span style="color:#f92672">=</span> ctrl<span style="color:#f92672">.</span>ControlSystemSimulation(heating_ctrl)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test with different temperatures</span>
+</span></span><span style="display:flex;"><span>test_temperatures <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">45</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Temperature Control System Results:&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> temp <span style="color:#f92672">in</span> test_temperatures:
+</span></span><span style="display:flex;"><span>    heating_sim<span style="color:#f92672">.</span>input[<span style="color:#e6db74">&#39;temperature&#39;</span>] <span style="color:#f92672">=</span> temp
+</span></span><span style="display:flex;"><span>    heating_sim<span style="color:#f92672">.</span>compute()
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Temperature: </span><span style="color:#e6db74">{</span>temp<span style="color:#e6db74">}</span><span style="color:#e6db74">°C -&gt; Heating: </span><span style="color:#e6db74">{</span>heating_sim<span style="color:#f92672">.</span>output[<span style="color:#e6db74">&#39;heating&#39;</span>]<span style="color:#e6db74">:</span><span style="color:#e6db74">.2f</span><span style="color:#e6db74">}</span><span style="color:#e6db74">%&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Visualize membership functions</span>
+</span></span><span style="display:flex;"><span>temperature<span style="color:#f92672">.</span>view()
+</span></span><span style="display:flex;"><span>heating<span style="color:#f92672">.</span>view()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><h3 id="manual-implementation">Manual Implementation</h3>
+<p>If you prefer to implement the membership functions manually without external libraries, here&rsquo;s a basic implementation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">membership_cold</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Membership function for &#39;cold&#39; temperature.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">&lt;</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">20</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">20</span> <span style="color:#f92672">-</span> x) <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">membership_cool</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Membership function for &#39;cool&#39; temperature.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">or</span> x <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">30</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">&lt;</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">20</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (x <span style="color:#f92672">-</span> <span style="color:#ae81ff">10</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">&lt;</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">30</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">30</span> <span style="color:#f92672">-</span> x) <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">membership_warm</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Membership function for &#39;warm&#39; temperature.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">or</span> x <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">40</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">&lt;</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">30</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (x <span style="color:#f92672">-</span> <span style="color:#ae81ff">20</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> <span style="color:#ae81ff">30</span> <span style="color:#f92672">&lt;</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">40</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">40</span> <span style="color:#f92672">-</span> x) <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">membership_hot</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Membership function for &#39;hot&#39; temperature.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">30</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> <span style="color:#ae81ff">30</span> <span style="color:#f92672">&lt;</span> x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">40</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (x <span style="color:#f92672">-</span> <span style="color:#ae81ff">30</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calculate_memberships</span>(temperature):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;Calculate all membership values for a given temperature.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;cold&#39;</span>: membership_cold(temperature),
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;cool&#39;</span>: membership_cool(temperature),
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;warm&#39;</span>: membership_warm(temperature),
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;hot&#39;</span>: membership_hot(temperature)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example usage</span>
+</span></span><span style="display:flex;"><span>temp <span style="color:#f92672">=</span> <span style="color:#ae81ff">35</span>
+</span></span><span style="display:flex;"><span>memberships <span style="color:#f92672">=</span> calculate_memberships(temp)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Temperature: </span><span style="color:#e6db74">{</span>temp<span style="color:#e6db74">}</span><span style="color:#e6db74">°C&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> category, value <span style="color:#f92672">in</span> memberships<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;  </span><span style="color:#e6db74">{</span>category<span style="color:#f92672">.</span>capitalize()<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>value<span style="color:#e6db74">:</span><span style="color:#e6db74">.2f</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>value<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#e6db74">:</span><span style="color:#e6db74">.0f</span><span style="color:#e6db74">}</span><span style="color:#e6db74">%)&#34;</span>)
+</span></span></code></pre></div><h2 id="applications-of-fuzzy-logic">Applications of Fuzzy Logic</h2>
+<p>Fuzzy logic has found applications in numerous fields:</p>
+<ul>
+<li><strong>Control Systems</strong>: Air conditioning, washing machines, camera autofocus, and automotive systems</li>
+<li><strong>Decision Making</strong>: Expert systems, medical diagnosis, and financial analysis</li>
+<li><strong>Pattern Recognition</strong>: Image processing and speech recognition</li>
+<li><strong>Artificial Intelligence</strong>: Natural language processing and machine learning</li>
+<li><strong>Consumer Electronics</strong>: Rice cookers, vacuum cleaners, and other smart appliances</li>
+</ul>
+<h2 id="advantages-and-limitations">Advantages and Limitations</h2>
+<h3 id="advantages">Advantages:</h3>
+<ul>
+<li>Handles imprecision and uncertainty naturally</li>
+<li>Uses human-readable rules (IF-THEN statements)</li>
+<li>Can model complex, non-linear systems</li>
+<li>Robust to noise and variations</li>
+<li>Requires less precise mathematical models</li>
+</ul>
+<h3 id="limitations">Limitations:</h3>
+<ul>
+<li>Requires expert knowledge to define rules</li>
+<li>Can be computationally expensive for large systems</li>
+<li>May not be suitable for systems requiring precise mathematical models</li>
+<li>Rule tuning can be time-consuming</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Fuzzy logic provides a powerful framework for dealing with uncertainty and imprecision in real-world systems. By allowing degrees of truth rather than strict binary values, it enables more natural and human-like reasoning. The combination of membership functions, fuzzy rules, inference engines, and defuzzification creates a complete system capable of handling complex, ambiguous situations.</p>
+<p>Whether you&rsquo;re building a temperature control system, designing an expert system, or working on any application that requires handling of imprecise data, fuzzy logic offers an intuitive and effective approach. The Python examples provided above demonstrate how easy it is to implement fuzzy logic systems, making this powerful technique accessible to developers and engineers.</p>
+
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/fuzzy">fuzzy</a></li>
+              
+              <li><a href="/tags/python">python</a></li>
+              
+              <li><a href="/tags/machine-learning">machine-learning</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
+
+      
+      
+      <div class="toc">
+        <strong>Table of contents:</strong>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#what-is-fuzzy-logic">What is Fuzzy Logic?</a>
+      <ul>
+        <li><a href="#the-four-pillars-of-fuzzy-logic">The Four Pillars of Fuzzy Logic</a></li>
+      </ul>
+    </li>
+    <li><a href="#python-implementation">Python Implementation</a>
+      <ul>
+        <li><a href="#manual-implementation">Manual Implementation</a></li>
+      </ul>
+    </li>
+    <li><a href="#applications-of-fuzzy-logic">Applications of Fuzzy Logic</a></li>
+    <li><a href="#advantages-and-limitations">Advantages and Limitations</a>
+      <ul>
+        <li><a href="#advantages">Advantages:</a></li>
+        <li><a href="#limitations">Limitations:</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    </article>
+</main>
+<footer>
+  <div style="display:flex"><a class="soc" href="https://github.com/johan237" rel="me" title="GitHub"><svg class="feather">
+       <use href="/website.github.io/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#github" />
+    </svg></a><a class="border"></a><a class="soc" href="https://twitter.com/johan_tchassem/" rel="me" title="Twitter"><svg class="feather">
+       <use href="/website.github.io/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#twitter" />
+    </svg></a><a class="border"></a><a class="soc" href="https://gitlab.com/athul/" rel="me" title="GitLab"><svg class="feather">
+       <use href="/website.github.io/svg/feather-sprite.51cf5647cb1987f769b616558f2620fd9423d72058490231b391bf6aa3744b55.svg#gitlab" />
+    </svg></a><a class="border"></a></div>
+  <div class="footer-info">
+    2025  © Johan Kemmegne Tchassem |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+
+</div>
+    </body>
+</html>

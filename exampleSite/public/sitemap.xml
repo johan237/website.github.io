@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/website.github.io/</loc>
+    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/about/</loc>
+    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/posts/on-fuzzy-logic/</loc>
+    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/tags/fuzzy/</loc>
+    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/tags/machine-learning/</loc>
+    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/posts/</loc>
+    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/tags/python/</loc>
+    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/tags/</loc>
+    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/posts/tg-gh/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/website.github.io/categories/</loc>
+  </url>
+</urlset>

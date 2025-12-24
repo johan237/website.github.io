@@ -1,28 +1,24 @@
 +++
-title = "About"
-description = "Hugo, the world’s fastest framework for building websites"
-date = "2019-02-28"
-aliases = ["about-us","about-hugo","contact"]
-author = "Hugo Authors"
+title = "About me."
+description = "This is my about page"
+date = "2025-12-24"
+aliases = ["about-us","about","info"]
+author = "Johan Tchassem"
 +++
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hello, my name is Kemmegne Tchassem Johan. I am a master research student at the University of Sherbrooke. 
 
-Hugo makes use of a variety of open source projects including:
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+My research project is on building an intelligent system capable of evaluating (and quantifying) dangerous state when someone is cooking depending on the user profile and cooking conditions and giving him the best contextual assistance. This project is developed at Laboratoire DOMUS, a research lab focusing on building assistive technologies especially for older adults and people having cognitive or physical issues. 
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
+I have already written an article : [not-yet-published]. This article present a four-based fuzzy system and adaptive framework to evaluate and quantify danger when someone is cooking such that the system adapts to user actions and evolves with time.
 
-Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+I am currently working on the assistance which will be provided through the usage of LLMs for refined actions depending on user specificities. 
+
+
+After my master's degree, I wish to work in data science and particularly LLMs but I am open to work on any challenging and impactful projects at the intersection of both engineering and research.
 
 
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Johan personal website</title>
+    <link>http://localhost:1313/website.github.io/</link>
+    <description>Recent content on Johan personal website</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© Johan Kemmegne Tchassem</copyright>
+    <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/website.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About me.</title>
+      <link>http://localhost:1313/website.github.io/about/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/website.github.io/about/</guid>
+      <description>&lt;p&gt;Hello, my name is Kemmegne Tchassem Johan. I am a master research student at the University of Sherbrooke.&lt;/p&gt;&#xA;&lt;p&gt;My research project is on building an intelligent system capable of evaluating (and quantifying) dangerous state when someone is cooking depending on the user profile and cooking conditions and giving him the best contextual assistance. This project is developed at Laboratoire DOMUS, a research lab focusing on building assistive technologies especially for older adults and people having cognitive or physical issues.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>An introduction to fuzzy logic with python code.</title>
+      <link>http://localhost:1313/website.github.io/posts/on-fuzzy-logic/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/website.github.io/posts/on-fuzzy-logic/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Fuzzy logic is a branch of artificial intelligence that deals with &amp;ldquo;fuzzy&amp;rdquo; data—data that cannot be represented by discrete state values. Unlike traditional binary logic where something is either true (1) or false (0), fuzzy logic allows for degrees of truth, making it particularly useful for handling real-world concepts like temperature, distance, speed, and other continuous variables.&lt;/p&gt;&#xA;&lt;p&gt;Consider temperature as an example. Traditional binary logic might classify temperature as either cold (0) or hot (1). A more refined approach would be to create multiple discrete states: [cold, cool, warm, hot], and use one-hot encoding where cold might be represented as [1, 0, 0, 0].&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Telegram Bot for  GitHub Actions</title>
+      <link>http://localhost:1313/website.github.io/posts/tg-gh/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/website.github.io/posts/tg-gh/</guid>
+      <description>&lt;h2 id=&#34;telegram&#34;&gt;Telegram&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://telegram.org/&#34;&gt;Telegram&lt;/a&gt; is a cloud-based mobile and desktop messaging app with a focus on security and speed. It is free to use and extensively hackable. It also has a good bot support system. The API is also easy to implement and has many wrappers for building bots with the API.&lt;/p&gt;&#xA;&lt;h2 id=&#34;github-actions&#34;&gt;GitHub Actions&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/features/actions&#34;&gt;GitHub Actions&lt;/a&gt; is a CI/CD runtime for your GitHub repository. You can run almost anything from scripts to docker containers. You can build, test and deploy your code with GitHub Actions. All these actions are called workflows and workflows differ in the job they&amp;rsquo;re doing. These maybe test workflows, build ones or deployment ones. You can find all the actions on GitHub in the &lt;a href=&#34;https://github.com/marketplace?type=actions&#34;&gt;marketplace&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/website.github.io/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/website.github.io/archives/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
