@@ -15,10 +15,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-defaults:
-  run:
-    working-directory: ./themes/archie/exampleSite
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,8 +22,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 0
+
+      - name: Verify directory structure
+        run: |
+          ls -la themes/archie/exampleSite/ || echo "Directory not found"
+          ls -la themes/archie/exampleSite/config.toml || echo "Config not found"
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -40,6 +40,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build with Hugo
+        working-directory: ./themes/archie/exampleSite
         run: |
           hugo \
             --gc \
