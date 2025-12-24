@@ -22,17 +22,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          submodules: recursive  # Important if theme is a git submodule
           fetch-depth: 0
 
       - name: Verify directory structure
         run: |
-          ls -la themes/archie/exampleSite/ || echo "Directory not found"
-          ls -la themes/archie/exampleSite/config.toml || echo "Config not found"
+          echo "=== Root directory ==="
+          ls -la
+          echo "=== Config files ==="
+          ls -la *.toml *.yaml *.yml 2>/dev/null || echo "No config found in root"
+          echo "=== Themes directory ==="
+          ls -la themes/ 2>/dev/null || echo "No themes directory"
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.153.1'
+          hugo-version: '0.139.0'  # Use latest stable
           extended: true
 
       - name: Setup Pages
@@ -40,7 +45,8 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build with Hugo
-        working-directory: ./themes/archie/exampleSite
+        env:
+          HUGO_ENVIRONMENT: production
         run: |
           hugo \
             --gc \
@@ -50,8 +56,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./themes/archie/exampleSite/public
-          
+          path: ./public
+
   deploy:
     environment:
       name: github-pages
